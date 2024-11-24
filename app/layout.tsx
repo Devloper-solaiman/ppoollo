@@ -1,7 +1,15 @@
+
+import React from "react";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
+const GreatVibes = localFont({
+  src:"./fonts/GreatVibes-Regular.ttf", 
+  variable:"--GreatVibes-Regular"
+})
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -26,9 +34,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable, geistMono.variable, GreatVibes.variable } antialiased`}
       >
+        <React.StrictMode>
         {children}
+        </React.StrictMode>
       </body>
     </html>
   );
